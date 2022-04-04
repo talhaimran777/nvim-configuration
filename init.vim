@@ -58,6 +58,12 @@ call plug#begin()
 
   " Plugin for git integration
   Plug 'lewis6991/gitsigns.nvim'
+
+  " For toggling diagnostics
+  Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+
+  " For comments
+  Plug 'tpope/vim-commentary'
 call plug#end()
 
 colorscheme gruvbox
@@ -403,6 +409,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
       map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
     end
   })
+  -- For toggling diagnostics
+  require'toggle_lsp_diagnostics'.init()
 EOF
 
 " Enabling status tab
