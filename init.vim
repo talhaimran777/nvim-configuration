@@ -53,6 +53,9 @@ call plug#begin()
 
   " For comments
   Plug 'tpope/vim-commentary'
+
+  " For Completion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme gruvbox
