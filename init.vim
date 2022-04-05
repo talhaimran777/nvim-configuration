@@ -326,9 +326,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
       map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
     end
   })
-
-  -- For toggling diagnostics
-  require'toggle_lsp_diagnostics'.init()
 EOF
 
 " Enabling status tab
