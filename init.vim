@@ -37,8 +37,6 @@ call plug#begin()
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'gruvbox-community/gruvbox'
   Plug 'preservim/nerdtree'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'jiangmiao/auto-pairs'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'windwp/nvim-ts-autotag'
@@ -327,12 +325,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
     end
   })
 EOF
-
-" Enabling status tab
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
 
 " coc config
 let g:coc_global_extensions = [
