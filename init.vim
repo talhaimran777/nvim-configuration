@@ -1,4 +1,5 @@
 set relativenumber
+set mouse=a
 set nohlsearch
 set hidden
 set noerrorbells
@@ -51,6 +52,10 @@ call plug#begin()
 
   " For Completion
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  " Barbar for stop buffer tabs
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'romgrk/barbar.nvim'
 call plug#end()
 
 colorscheme gruvbox
@@ -201,6 +206,13 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+-- Changing buffer order
+keymap("n", "<S-j>", ":BufferMovePrevious<CR>", opts)
+keymap("n", "<S-n>", ":BufferMoveNext<CR>", opts)
+
+-- Closing Buffer
+keymap("n", "<C-c>", ":BufferClose<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
