@@ -15,7 +15,7 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set termguicolors
-set scrolloff=8
+" set scrolloff=8
 " set noshowmode
 set signcolumn=yes
 set isfname+=@-@
@@ -32,6 +32,8 @@ set updatetime=50
 set shortmess+=c
 
 set colorcolumn=80
+
+set clipboard+=unnamedplus
 
 call plug#begin()
   Plug 'nvim-lua/plenary.nvim'
@@ -207,15 +209,15 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":BufferNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferPrevious<CR>", opts)
 
 -- Changing buffer order
 keymap("n", "<S-j>", ":BufferMovePrevious<CR>", opts)
 keymap("n", "<S-n>", ":BufferMoveNext<CR>", opts)
 
 -- Closing Buffer
-keymap("n", "<C-c>", ":BufferClose<CR>", opts)
+keymap("n", "<A-c>", ":BufferClose<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
