@@ -73,6 +73,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-b> :NERDTree<CR>
 nnoremap <C-x> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 " Configuring Telescope
 nnoremap <leader>ps <cmd>Telescope live_grep<cr>
