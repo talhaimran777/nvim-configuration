@@ -15,18 +15,15 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set termguicolors
-" set scrolloff=8
-" set noshowmode
 set signcolumn=yes
 set isfname+=@-@
-" set ls=0
 
 " Give more space for displaying messages.
 set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=50
+set updatetime=0
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -44,7 +41,6 @@ call plug#begin()
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'windwp/nvim-ts-autotag'
   Plug 'terryma/vim-multiple-cursors'
-  Plug 'tpope/vim-commentary'
 
   " Plugin for git integration
   Plug 'lewis6991/gitsigns.nvim'
@@ -159,20 +155,8 @@ require('telescope').setup{
     }
   },
   pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
   }
 }
 
@@ -187,14 +171,6 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
 -- Normal --
 -- Better window navigation
@@ -244,14 +220,6 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
 
 -- Setting up auto close tag
   require'nvim-treesitter.configs'.setup {
