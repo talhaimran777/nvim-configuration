@@ -54,9 +54,6 @@ call plug#begin()
   " Barbar for buffer tabs
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'romgrk/barbar.nvim'
-
-  " Terminal Toggle
-  Plug 'akinsho/toggleterm.nvim'
 call plug#end()
 
 colorscheme gruvbox
@@ -161,8 +158,6 @@ require('telescope').setup{
 }
 
 local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -432,18 +427,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" set
-let g:toggleterm_terminal_mapping = '<C-t>'
-" or manually...
-autocmd TermEnter term://*toggleterm#*
-      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-
-" By applying the mappings this way you can pass a count to your
-" mapping to open a specific window.
-" For example: 2<C-t> will open terminal 2
-nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 " Remaps for splits and their navigation
 nmap ss :split <Return><C-w>w
