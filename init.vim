@@ -54,6 +54,12 @@ call plug#begin()
   " Barbar for buffer tabs
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'romgrk/barbar.nvim'
+
+  " Nvim Tmux Navigation
+  Plug 'alexghergh/nvim-tmux-navigation'
+
+  " Git
+  Plug 'kdheepak/lazygit.nvim'
 call plug#end()
 
 colorscheme gruvbox
@@ -61,9 +67,26 @@ colorscheme gruvbox
 " Setting up leader key
 let mapleader = " "
 
+" Lazy git configuration
+let g:lazygit_floating_window_winblend = 0 " transparency of floating window
+let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
+let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
+let g:lazygit_floating_window_use_plenary = 0 " use plenary.nvim to manage floating window if available
+let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
+
+" setup mapping to call :LazyGit
+nnoremap <silent> <leader>gg :LazyGit<CR>
+
+" Tmux Nvim Navigation remaps
+nnoremap <silent> <C-h> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>
+nnoremap <silent> <C-j> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>
+nnoremap <silent> <C-k> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>
+nnoremap <silent> <C-l> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>
+nnoremap <silent> <C-\> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>
+nnoremap <silent> <C-Space> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>
+
 " Configuring NerdTree
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-b> :NERDTree<CR>
 nnoremap <C-x> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
@@ -169,10 +192,10 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -190,10 +213,6 @@ keymap("n", "<S-n>", ":BufferMoveNext<CR>", opts)
 
 -- Closing Buffer
 keymap("n", "<A-c>", ":BufferClose<CR>", opts)
-
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
